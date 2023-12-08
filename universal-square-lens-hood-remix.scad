@@ -10,7 +10,7 @@
  */
 
 use <MCAD/boxes.scad>
-use <threads.scad> // https://github.com/rcolyer/threads-scad
+use <./lib/threads/threads.scad>
 
 $fn = $preview ? 32 : 96;
 
