@@ -40,8 +40,6 @@ boxRadius=3;
 light=true;
 // include the lens designation "engraving" text.
 useLabel=false;
-// use the threads.scad library. If you are using the Thingiverse customizer, turn this off.
-useThreadsLib=true;
 
 FOV=2*atan(43.27/(2*focalLength*sensorCrop));
 
@@ -50,28 +48,7 @@ echo(str("FOV = ",FOV));
 hoodDesignation=str(focalLength,"/",filterD);
 
 module ThreadBase(pitch=0.75,dia=52,resolution=90,height=10) {
-  if (useThreadsLib) {
-    ScrewThread(outer_diam=dia, height=height, pitch=pitch);
-  } else {
-    pitchAngle=atan(PI*dia/pitch);
-    echo(str("pitchAngle=",pitchAngle,"mm"));
-    difference() {
-      cylinder(d=dia,h=height,$fn=resolution);
-      for(i=[0:360/resolution:360-360/resolution]) {
-        rotate([0,0,i]) {
-          for(j=[0:pitch:height/pitch+pitch]) {
-            translate([dia/2,0,pitch*i/(360-360/resolution)+j-pitch]) {
-              rotate([-pitchAngle,0,0]) {
-                scale([1,0.866,1]) {
-                  cylinder(d=pitch,h=10,$fn=4,center=true);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  ScrewThread(outer_diam=dia, height=height, pitch=pitch);
 }
 
 module FOV() {
