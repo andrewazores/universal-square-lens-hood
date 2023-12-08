@@ -29,10 +29,6 @@ focalLength=23;
 // length of the lens hood.
 hoodL=12;
 lensRim=2;
-// lightweight variant, more hollowed out.
-light=true;
-// include the lens designation "engraving" text.
-useLabel=false;
 // Crop factor of your camera's sensor or film size.
 sensorCrop=1.5; //Options: FullFrame=1.0,APS-C(DX)=1.5,APS-C(Canon)=1.6,MFT=2
 // Ratio of your camera's sensor. Micro Four Thirds is 4:3 as the name suggests (1.33), other cameras are generally 3:2 (1.5).
@@ -40,6 +36,10 @@ sensorRatio=1.5; //Options: FullFrame/APS-C=3/2,MFT=4/3
 showFOV=$preview;
 // corner radiusing.
 boxRadius=3;
+// lightweight variant, more hollowed out.
+light=true;
+// include the lens designation "engraving" text.
+useLabel=false;
 // use the threads.scad library. If you are using the Thingiverse customizer, turn this off.
 useThreadsLib=true;
 
