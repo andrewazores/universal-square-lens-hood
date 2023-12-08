@@ -1,0 +1,3 @@
+[submodule "lib/threads"]
+	path = lib/threads
+	url = https://github.com/rcolyer/threads-scad
