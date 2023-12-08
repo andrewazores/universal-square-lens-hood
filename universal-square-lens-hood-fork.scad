@@ -14,25 +14,33 @@ use <threads.scad> // https://github.com/rcolyer/threads-scad
 
 $fn = $preview ? 32 : 96;
 
+//rotational offset for the start of the thread. If your hood doesn't screw on straight, adjust this. Use the threadTest=true variable to create a simple tester blank to help determine this measurement without wasting too much time and filament.
+threadRotation=45;
+// enable this to print a "blank" test fit piece for determining the thread rotation angle for your particular lens.
+threadTest=false;
+// thread filter diameter of your lens.
 filterD=43;
+// width of the front element (piece of glass) of your lens.
 frontD=25;
+// length of the hood's screw thread.
 filterH=2;
+// focal length of your lens. Do not adjust this for full-frame equivalency - just use the raw focal length value.
 focalLength=23;
+// length of the lens hood.
 hoodL=12;
 lensRim=2;
-boxRadius=3;
+// lightweight variant, more hollowed out.
 light=true;
+// include the lens designation "engraving" text.
 useLabel=false;
+// Crop factor of your camera's sensor or film size.
 sensorCrop=1.5; //Options: FullFrame=1.0,APS-C(DX)=1.5,APS-C(Canon)=1.6,MFT=2
-sensorRatio=3/2; //Options: FullFrame/APS-C=3/2,MFT=4/3
-
-threadRotation=45;
-//rotational offset for the start of the thread. If your hood doesn't screw on straight,
-//adjust this. Use the threadTest=true variable to create a simple tester blank to help
-//determine this measurement without wasting too much time and filament.
-
+// Ratio of your camera's sensor. Micro Four Thirds is 4:3 as the name suggests (1.33), other cameras are generally 3:2 (1.5).
+sensorRatio=1.5; //Options: FullFrame/APS-C=3/2,MFT=4/3
 showFOV=$preview;
-threadTest=false;
+// corner radiusing.
+boxRadius=3;
+// use the threads.scad library. If you are using the Thingiverse customizer, turn this off.
 useThreadsLib=true;
 
 FOV=2*atan(43.27/(2*focalLength*sensorCrop));
